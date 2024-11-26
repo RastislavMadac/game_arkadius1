@@ -4,3 +4,5 @@ def choice():
 def wrong_answer():
   print("Netrafil si musím sa ťa spítať ešte raz")
 
+
+

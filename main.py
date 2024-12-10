@@ -1,31 +1,28 @@
-from print_all import print_choice,print_wrong_answer,print_good_by,continue_game
 
 
-print("Práve si zapol hru Arkádius, v ktorej budeš bojovať proti príšerám a pro tom so zlepšovať svojho hrdinu. Si na to pripravený?")
+import constants.phase_constants
+from phase.intro import intro_phase
+from phase.name import name_phase
 
-while True:
-    print("0 - Nie, bojím sa")
-    print("1 - Áno, poďme na to")
+current_phase=constants.phase_constants.INTRO
 
-    all_choice = print_choice()
+continue_game=True
 
-    if all_choice not in ["0", "1"]:
-        print_wrong_answer()
-        continue
+while continue_game:
+    """call constants intro"""
+    if current_phase==constants.phase_constants.INTRO:
+        current_phase= intro_phase()
 
-    if all_choice =="0":
-        print_good_by()
-        break
+    """call constants Name"""
 
-    if all_choice=="1":
-        continue_game()
-        continue
+    if current_phase == constants.phase_constants.NAME:
+        current_phase = name_phase()
 
+    if current_phase==constants.phase_constants.END:
+       continue_game=False
 
-
-
-
-
+    if current_phase==constants.phase_constants.INTRO_ABILITIES:
+        pass
 
 
 

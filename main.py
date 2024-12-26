@@ -3,6 +3,7 @@
 import constants.phase_constants
 from phase.intro import intro_phase
 from phase.name import name_phase
+from phase.abilities import abilities_update
 
 current_phase=constants.phase_constants.INTRO
 
@@ -22,7 +23,7 @@ while continue_game:
        continue_game=False
 
     if current_phase==constants.phase_constants.INTRO_ABILITIES:
-        pass
+        current_phase=abilities_update()
 
 
 

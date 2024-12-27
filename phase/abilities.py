@@ -4,6 +4,7 @@ import abilities_folder.hero_data
 from abilities_folder.hero_data import abilities
 from print_all import print_ready_for_fight, print_finish_add_abilities,status_information,print_wrong_answer,print_abilities_points,print_abilities_options,print_choice, point_information, empty_line,choice_better_abilities
 import abilities_folder.hero_all_ponts
+import constants.phase_constants
 
 from constants.game_constants import DIVIDER
 
@@ -56,6 +57,7 @@ def abilities_update():
     print_abilities_points()
     empty_line()
     print_ready_for_fight()
+    return constants.phase_constants.FIGHT
 
 
 

@@ -61,10 +61,20 @@ def print_ready_for_fight():
     """Si pripravený na prvý súboj?"""
     print("Si pripravený na prvý súboj?")
 
+def print_finish_game():
+    """0 - Áno chcem ukončiť hru"
+       1 - Chcem pokračovať
+    """
+    print("0 - Áno chcem ukončiť hru")
+    print("1 - Chcem pokračovať")
+
+def print_ready_for_next_fight():
+    """Si pripravený na prvý súboj?"""
+    print("Si pripravený na prvý súboj?")
 
 def print_abilities_options( ):
     """
-   1 -  Útočná sila
+    1 -  Útočná sila
     2 -  Obrana
     3 -  Obratnosť
     4 -  Skill

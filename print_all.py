@@ -1,3 +1,5 @@
+from idlelib.colorizer import prog_group_name_to_tag
+
 from constants.game_constants import DIVIDER
 from abilities_folder.hero_data import abilities
 
@@ -71,6 +73,19 @@ def print_finish_game():
 def print_ready_for_next_fight():
     """Si pripravený na prvý súboj?"""
     print("Si pripravený na prvý súboj?")
+
+def print_notification_about_abilities(name_of_hero):
+    """{name_of_hero} tvoje schopnosti sú momentálne ne tom takto"""
+    print(f"{name_of_hero} tvoje schopnosti sú momentálne ne tom takto")
+
+def print_info_avalaible_points(avalaible_points):
+    """Máš {avalaible_points} na pridelenie schopností """
+    print(f"Máš {avalaible_points} na pridelenie schopností, musíš si upraviť body!!! ")
+
+def print_info_about_no_points():
+    """Nemáš žiadne body ktoré by so mohol pridať"""
+    print("Nemáš žiadne body ktoré by so mohol pridať")
+
 
 def print_abilities_options( ):
     """

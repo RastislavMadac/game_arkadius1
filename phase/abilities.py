@@ -2,7 +2,7 @@
 
 import abilities_folder.hero_data
 from abilities_folder.hero_data import abilities
-from print_all import print_ready_for_fight, print_finish_add_abilities,status_information,print_wrong_answer,print_abilities_points,print_abilities_options,print_choice, point_information, empty_line,choice_better_abilities
+from print_all import print_abilities_options_descriprion,print_ready_for_fight, print_finish_add_abilities,status_information,print_wrong_answer,print_abilities_points,print_abilities_options,print_choice, point_information, empty_line,choice_better_abilities
 import abilities_folder.hero_all_ponts
 import constants.phase_constants
 
@@ -19,12 +19,17 @@ def abilities_update():
 
     should_continue =True
     while should_continue:
-        print_abilities_options()
+        print_abilities_options(with_help_option=True)
         choice_better_abilities()
         choice = print_choice()
         print(DIVIDER)
 
-        if choice.isnumeric() and int(choice) in list(range(1, len(abilities)+1)):
+        if choice == "0":
+            print_abilities_options_descriprion()
+            print(DIVIDER)
+            continue
+
+        if choice.isnumeric() and int(choice) in list(range(0, len(abilities)+1)):
 
             #Name of abilyties
             chosen_ability_name=list(abilities.keys())[int(choice)-1]

@@ -5,4 +5,4 @@ points_for_abilities=7
 ability_picked_count=0
 
 """Body na úpravu schopností"""
-avalaible_points=2
+avalaible_points=0

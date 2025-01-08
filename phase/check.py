@@ -1,11 +1,12 @@
-from unittest import skipIf
+
 
 from print_all import empty_line, print_info_avalaible_points,print_abilities_points,print_notification_about_abilities,print_choice,print_wrong_answer, print_good_by,print_finish_game
 import constants.phase_constants
 import abilities_folder.hero_data
 import abilities_folder.hero_all_ponts
 
-from abilities_folder.hero_update import hero_update, hero_add_point
+from abilities_folder.hero_update import  hero_add_point, hero_substract_point
+
 
 
 def hero_add_points():
@@ -31,9 +32,7 @@ def hero_add_points():
                 hero_add_point()
         if choice == "2":
             empty_line()
-
-            hero_update()
-
+            hero_substract_point()
 
 def phase_check(next_phase):
 
@@ -76,7 +75,7 @@ def phase_check(next_phase):
 
 
 def hero_check(skip_start=False):
-    if not skip_start:
+    if  skip_start:
         print_notification_about_abilities(abilities_folder.hero_data.names_of_hero)
         print_abilities_points()
         empty_line()
@@ -107,4 +106,4 @@ def hero_check(skip_start=False):
 
 
 
-hero_check()
+

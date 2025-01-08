@@ -1,11 +1,14 @@
+
 from print_all import print_info_about_no_points,print_info_avalaible_points,print_abilities_options,print_choice,status_information,print_abilities_points,empty_line,point_information,print_wrong_answer
 from constants.game_constants import DIVIDER
 from  abilities_folder.hero_data import abilities
 import abilities_folder.hero_all_ponts
-from phase.abilities import abilities_update
+
+
 
 
 def hero_update():
+    from phase.check import hero_check  # Lazy import, inside the function
     while True:
         print("0 - Späť")
         print(f"1 - Pridať body (Máš - {abilities_folder.hero_all_ponts.avalaible_points} bodov na pridanie)")
@@ -18,7 +21,7 @@ def hero_update():
             continue
 
         if choice == "0":
-            break
+            hero_check(skip_start=False)
 
         if choice == "1":
             empty_line()
@@ -68,7 +71,7 @@ def hero_add_point():
                 abilities_folder.hero_all_ponts.avalaible_points -= 1
                 point_information(point=abilities_folder.hero_all_ponts.avalaible_points)
             else:
-                print_info_about_no_points()
+                print_info_about_no_points("pridať")
                 hero_update()
 
         else:
@@ -83,6 +86,8 @@ def hero_substract_point():
 
         choice = print_choice()
         print(DIVIDER)
+        print("0 - Už nechcem body (späť)")
+        print_abilities_options()
         if choice=="0":
             print(DIVIDER)
             hero_update()
@@ -109,11 +114,10 @@ def hero_substract_point():
                 abilities_folder.hero_all_ponts.avalaible_points += 1
                 point_information(point=abilities_folder.hero_all_ponts.avalaible_points)
             else:
-                print_info_about_no_points()
+                print_info_about_no_points("odobrať")
                 hero_update()
 
         else:
             print_wrong_answer()
             hero_substract_point()
 
-hero_add_point()

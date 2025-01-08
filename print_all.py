@@ -82,12 +82,12 @@ def print_info_avalaible_points(avalaible_points):
     """Máš {avalaible_points} na pridelenie schopností """
     print(f"Máš {avalaible_points} na pridelenie schopností, musíš si upraviť body!!! ")
 
-def print_info_about_no_points():
+def print_info_about_no_points(info_point):
     """Nemáš žiadne body ktoré by so mohol pridať"""
-    print("Nemáš žiadne body ktoré by so mohol pridať")
+    print(f"Nemáš žiadne body ktoré by so mohol {info_point} ")
 
 
-def print_abilities_options( ):
+def print_abilities_options(with_help_option=False):
     """
     1 -  Útočná sila
     2 -  Obrana
@@ -96,10 +96,26 @@ def print_abilities_options( ):
     5 -  Život
     6 -  Šťastie
     """
+    if  with_help_option:
+        print("0 - Vysvetlivky - načo sú dobré jednotlivé schopnosti")
     for i, ability in enumerate(abilities.keys()):
        ability_option = str(i + 1) + ' - ' + ability
        if ability == "Život":
          ability_option += " " + "- jeden bod pridá 5 života"
+       print(ability_option)
+
+def print_abilities_options_descriprion():
+    """
+    Útočná sila - Sila je potrebna k útoku, do ktorého okrem sily vstupuje aj obratnosť a skill.
+    Obrana - Celkový obrana sa ráta z bodov obrany + obratnosti.
+    Obratnosť - Obratnosť je dôležitá aj pre obranu aj pre útok.
+    Skill - SKill je dôležitý pri normálnom útoku ako aj kritickom útoku
+    Život - Život je dôležitý pri bitke. Život sa dá doplniť po každom súboji.
+    Šťastie - Šťastie je dôležité pre kritický útok
+    """
+
+    for i, ability in abilities.items():
+       ability_option = f"{i} - {ability['description']}"
        print(ability_option)
 
 

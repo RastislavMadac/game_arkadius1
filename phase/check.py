@@ -4,6 +4,8 @@ from print_all import empty_line, print_info_avalaible_points,print_abilities_po
 import constants.phase_constants
 import abilities_folder.hero_data
 import abilities_folder.hero_all_ponts
+from save_load import save_game
+
 
 from abilities_folder.hero_update import  hero_add_point, hero_substract_point
 
@@ -51,14 +53,14 @@ def phase_check(next_phase):
             continue
 
         if choice =="0":
-            return constants.phase_constants.FIGHT
+            return next_phase
 
         if choice == "1":
             hero_check()
             empty_line()
         if choice == "2":
-            # TODO save_game
-            continue
+            save_game(next_phase)
+
         if choice =="3":
            while True:
                 print_finish_game()

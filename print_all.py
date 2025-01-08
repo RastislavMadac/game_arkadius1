@@ -86,6 +86,16 @@ def print_info_about_no_points(info_point):
     """Nemáš žiadne body ktoré by so mohol pridať"""
     print(f"Nemáš žiadne body ktoré by so mohol {info_point} ")
 
+def print_saved_name(name_of_hero):
+    """Pod akým názvom chceš uložiť hru {name_of_hero} (názov nesmie obsahovať čísla, špeciálne znaky ani medzery)"""
+    print(f"Pod akým názvom chceš uložiť hru {name_of_hero}? (názov nesmie obsahovať čísla, špeciálne znaky ani medzery)")
+
+def print_info_saved_game():
+    """Úspešne si uložil hru"""
+    return "Úspešne si uložil hru"
+
+
+
 
 def print_abilities_options(with_help_option=False):
     """

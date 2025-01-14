@@ -1,0 +1,9 @@
+rasto
+Útočná sila - 3
+Obrana - 1
+Obratnosť - 1
+Skill - 0
+Život - 35
+Šťastie - 1
+FIGHT
+4

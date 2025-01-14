@@ -1,6 +1,7 @@
 
 
 import constants.phase_constants
+from phase.start import start_phase
 from phase.intro import intro_phase
 from phase.name import name_phase
 from phase.abilities import abilities_update
@@ -8,11 +9,15 @@ from phase.check import phase_check
 from constants.game_constants import DIVIDER
 from print_all import print_ready_for_next_fight
 
-current_phase=constants.phase_constants.INTRO
+current_phase=constants.phase_constants.START
 
 continue_game=True
 
 while continue_game:
+    """call constants Start"""
+    if current_phase==constants.phase_constants.START:
+        current_phase= start_phase()
+
     """call constants intro"""
     if current_phase==constants.phase_constants.INTRO:
         current_phase= intro_phase()

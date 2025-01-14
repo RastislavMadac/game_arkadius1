@@ -1,6 +1,12 @@
 
 
-from print_all import empty_line, print_info_avalaible_points,print_abilities_points,print_notification_about_abilities,print_choice,print_wrong_answer, print_good_by,print_finish_game
+from print_all import (empty_line,
+                       print_info_avalaible_points,
+                       print_abilities_points,
+                       print_notification_about_abilities,
+                       print_choice,print_wrong_answer,
+                       print_good_by,
+                       print_finish_game)
 import constants.phase_constants
 import abilities_folder.hero_data
 import abilities_folder.hero_all_ponts
@@ -56,6 +62,7 @@ def phase_check(next_phase):
             return next_phase
 
         if choice == "1":
+            print_abilities_points()
             hero_check()
             empty_line()
         if choice == "2":
@@ -73,6 +80,7 @@ def phase_check(next_phase):
                 if choice1 == "0":
                  print_good_by()
                  return constants.phase_constants.END
+                break
 
 
 

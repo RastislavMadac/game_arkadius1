@@ -1,11 +1,9 @@
-from idlelib.colorizer import prog_group_name_to_tag
-
 from constants.game_constants import DIVIDER
 from abilities_folder.hero_data import abilities
 
 def print_choice():
     """ aká je tvoja voľba: input"""
-    return input("Aká je tvoja voťba? ")
+    return input("Aká je tvoja voľba? ")
 
 def print_wrong_answer():
     """Netrafil si sa, musím sa ťa spýtať ešte raz"""
@@ -14,7 +12,7 @@ def print_wrong_answer():
 def print_good_by():
     """To ma mrzí, dúfam, že prídeš neskôr
     DIVIDER
-    "Dovidenia"
+    Dovidenia
     """
     print("To ma mrzí, dúfam, že prídeš neskôr")
     print(DIVIDER)
@@ -64,7 +62,7 @@ def print_ready_for_fight():
     print("Si pripravený na prvý súboj?")
 
 def print_finish_game():
-    """0 - Áno chcem ukončiť hru"
+    """0 - Áno chcem ukončiť hru
        1 - Chcem pokračovať
     """
     print("0 - Áno chcem ukončiť hru")
@@ -95,7 +93,41 @@ def print_info_saved_game():
     return "Úspešne si uložil hru"
 
 
+def print_start_menu():
+    """0 - Začať novú hru
+    1 - Načítať uloženú hru
+    """
+    print("0 - Začať novú hru" )
+    print("1 - Načítať uloženú hru")
 
+def print_saved_menu_game(name_saved_game):
+    """0 - Spať
+       1 - {name_saved_game}"""
+    print("0 - Spať")
+    print(f"1 - {name_saved_game}")
+
+def print_loading_game(name_of_loading):
+    """Načitávam hru uloženú pod názvom {name_of_loading}"""
+    print(f"Načítavam hru uloženú pod názvom {name_of_loading}")
+
+def print_loaded_game(name_hero):
+    """Hra sa načítala...Vitaj späť {name_hero}"""
+    print(f"Hra sa načítala...Vitaj späť {name_hero}")
+
+def print_no_saved_game():
+    """Nemáš žiadne uložené hry"""
+    print("Nemáš žiadne uložené hry")
+
+def print_back():
+    """0 - späť"""
+    print("0 - späť")
+
+def print_load_file():
+    """Aký súbor chcete načítať?"""
+    print("Aký súbor chcete načítať?")
+
+def print_game_position_loaded(name_of_position):
+    print(f"{name_of_position} bola načítaná zo zálohy")
 
 def print_abilities_options(with_help_option=False):
     """

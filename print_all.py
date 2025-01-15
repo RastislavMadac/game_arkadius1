@@ -129,6 +129,19 @@ def print_load_file():
 def print_game_position_loaded(name_of_position):
     print(f"{name_of_position} bola načítaná zo zálohy")
 
+
+def print_start_fight_info():
+    """ZAČÍNAME SÚBOJ, AKO PRVÝ ÚTOČIŠ TY!"""
+    print("\n ZAČÍNAME SÚBOJ, AKO PRVÝ ÚTOČIŠ TY!\n")
+
+def print_hero_ready_stats():
+    """Tvoj hrdina ide do súboja pripravený nasledovne"""
+    print("Tvoj hrdina ide do súboja pripravený nasledovne")
+
+def print_enemy_ready_stats(enemy):
+    """Oproti nemu stojí príšera {enemy['name']} s nasledovnými schopnosťami"""
+    print(f"Oproti nemu stojí príšera {enemy['name']} s nasledovnými schopnosťami")
+
 def print_abilities_options(with_help_option=False):
     """
     1 -  Útočná sila

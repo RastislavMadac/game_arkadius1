@@ -1,5 +1,7 @@
 names_of_hero=""
 
+fight_level=1
+
 abilities = {
     "Útočná sila": {
         "points": 1,

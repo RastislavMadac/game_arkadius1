@@ -1,6 +1,7 @@
 
-
+import abilities_folder.hero_data
 import constants.phase_constants
+from abilities_folder.hero_data import fight_level
 from phase.start import start_phase
 from phase.intro import intro_phase
 from phase.name import name_phase
@@ -8,6 +9,7 @@ from phase.abilities import abilities_update
 from phase.check import phase_check
 from constants.game_constants import DIVIDER
 from print_all import print_ready_for_next_fight
+from fight.battle import battle
 
 current_phase=constants.phase_constants.START
 
@@ -38,7 +40,8 @@ while continue_game:
 
     """call constants Fight"""
     if current_phase== constants.phase_constants.FIGHT:
-        current_phase=phase_check(constants.phase_constants.FIGHT)
+        print(DIVIDER)
+        battle(abilities_folder.hero_data.fight_level)
         print_ready_for_next_fight()
         break
 

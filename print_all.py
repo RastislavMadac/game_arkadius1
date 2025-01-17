@@ -1,3 +1,4 @@
+
 from constants.game_constants import DIVIDER
 from abilities_folder.hero_data import abilities
 
@@ -127,6 +128,7 @@ def print_load_file():
     print("Aký súbor chcete načítať?")
 
 def print_game_position_loaded(name_of_position):
+    """{name_of_position} bola načítaná zo zálohy"""
     print(f"{name_of_position} bola načítaná zo zálohy")
 
 
@@ -141,6 +143,51 @@ def print_hero_ready_stats():
 def print_enemy_ready_stats(enemy):
     """Oproti nemu stojí príšera {enemy['name']} s nasledovnými schopnosťami"""
     print(f"Oproti nemu stojí príšera {enemy['name']} s nasledovnými schopnosťami")
+
+def print_power_attack(name, power):
+    """name zaútočil útočnou silou {power}"""
+    print(f"{name} zaútočil útočnou silou {power}")
+
+def print_enemy_status_life(name, life):
+    """f"{name} po tvojom útoku stále žije. Súperov zvyšok života je - {life}"""
+    print(f"{name} po tvojom útoku stále žije. Súperov zvyšok života je - {life}")
+
+def print_hero_status_life(life):
+    """Stále žiješ zostáva ti {life} života"""
+    print(f"Stále žiješ zostáva ti {life} života")
+
+def print_winner():
+    """ZVÍŤAZIL SI"""
+    print("ZVÍŤAZIL SI")
+
+def print_status_of_life(balance, life):
+    """Po výťaznej bytke ti ostal život {balance}/{life}"""
+    print(DIVIDER)
+    print(f"Po výťaznej bytke ti ostal život {balance}/{life}")
+    print(DIVIDER)
+
+def print_after_win(lap, point):
+    """Po tvojej {lap}. výhre, ti pridávam bod, ktorý môžeš použiť na upravenie tvojho hrdinu."""
+    print(f"Po tvojej {lap}. výhre, ti pridávam {point}. bod, ktorý môžeš použiť na upravenie tvojho hrdinu. ")
+
+def print_critical_fight(who):
+    """Útočíš kritickým útokom"""
+    print(f"{who} útočí kritickým útokom")
+
+def print_missed_it():
+    """Netrafil si"""
+    print("Netrafil si")
+
+def print_lost_fight():
+    """Prehral si"""
+    print("\n Prehral si \n")
+
+def print_enemy_missed_it():
+    """Súperov útok ťa netrafil"""
+    print("Súperov útok ťa netrafil")
+
+def print_get_relax():
+    print("Potrebuješ si oddýchnuť a možno prehodnotiť svoje schopnosti máš 0 života")
 
 def print_abilities_options(with_help_option=False):
     """

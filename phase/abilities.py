@@ -8,7 +8,8 @@ import constants.phase_constants
 
 from constants.game_constants import DIVIDER
 
-def abilities_update():
+def abilities_update(avalaible_points):
+    abilities_folder.hero_all_ponts.points_for_abilities+=avalaible_points
 
     print(f"{abilities_folder.hero_data.names_of_hero}, tvoje schopnosti sú montálne na tom takto:")
     print_abilities_points()
@@ -54,7 +55,7 @@ def abilities_update():
             continue
         abilities_folder.hero_all_ponts.ability_picked_count += 1
 
-        if abilities_folder.hero_all_ponts.ability_picked_count==2:
+        if abilities_folder.hero_all_ponts.ability_picked_count==avalaible_points:
             should_continue=False
 
     print(DIVIDER)
@@ -62,7 +63,7 @@ def abilities_update():
     print_abilities_points()
     empty_line()
     print_ready_for_fight()
-    return constants.phase_constants.FIGHT
+    return constants.phase_constants.CHECK
 
 
 

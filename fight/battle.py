@@ -1,8 +1,10 @@
 import time
+import random
 
-from abilities_folder.hero_data import abilities
+from abilities_folder.hero_data import abilities,names_of_hero
 from abilities_folder.enemy_data import enemies
-from print_all import print_enemy_ready_stats,print_hero_ready_stats,empty_line,print_start_fight_info
+from print_all import print_enemy_missed_it,print_lost_fight,print_hero_status_life,print_winner,print_enemy_status_life,print_missed_it,print_power_attack, print_critical_fight, print_enemy_ready_stats, \
+    print_hero_ready_stats, empty_line, print_start_fight_info
 from constants.game_constants import DIVIDER
 
 # výpočet útok na nepriatela
@@ -39,6 +41,13 @@ def print_enemy_stats(enemy):
     print(f"Obrana: minimum - {str(enemy['defence'][0])} maximum- {str(enemy['defence'][1])}")
     print(f"Život - {str(enemy['health'])}")
 
+
+#kriticky utok nastane iba ak random vyberia menšie císlo ako ke vypočet kritického útoku
+def is_critical_hit(chance):
+    return random.randint(0,100)<chance
+
+
+#(boolean, number) cize (win, health_remaining) -win, 50
 def simulate_battle(hero, enemy):
     print_name_stats(hero, with_print=True)
     empty_line()
@@ -47,6 +56,69 @@ def simulate_battle(hero, enemy):
 
     print(DIVIDER)
     print_start_fight_info()
+
+    hero_turn=True
+    while True:
+        if hero_turn:
+            min_attack, max_attack=hero['attack']
+            attack=random.randint(min_attack,max_attack)
+            if is_critical_hit(hero['critical_hit']):
+                attack*=3
+                print_critical_fight("útočíš")
+
+            min_defence, max_defence= enemy['defence']
+            defence= random.randint(min_defence,max_defence)
+
+            # znamena ak je defence väčšie číslo ako attack bude vysledol vzdi 0
+            final_attack = max(attack -defence,0)
+            if final_attack>0:
+                print_power_attack(names_of_hero,final_attack)
+                enemy["health"]-=final_attack
+
+                if enemy['health']>0:
+                    print_enemy_status_life(enemy['name'], enemy['health'])
+                else:
+                    time.sleep(1)
+                    print_winner()
+                    print(DIVIDER)
+                    return True, hero['health']
+
+
+            else:
+                print_missed_it()
+
+        else:
+            min_attack, max_attack = enemy['attack']
+            attack = random.randint(min_attack, max_attack)
+            if is_critical_hit(enemy['critical_hit']):
+                attack *= 3
+                print_critical_fight("Súper")
+
+            min_defence, max_defence = hero['defence']
+            defence = random.randint(min_defence, max_defence)
+
+            # znamena ak je defence väčšie číslo ako attack bude vysledol vzdi 0
+            final_attack = max(attack - defence, 0)
+            if final_attack > 0:
+                print_power_attack(names_of_hero, final_attack)
+                hero["health"] -= final_attack
+
+                if hero['health'] > 0:
+                    print_hero_status_life(hero['health'])
+                else:
+                    time.sleep(1)
+                    print_lost_fight()
+                    print(DIVIDER)
+                    return False, 0
+
+
+            else:
+                print_enemy_missed_it()
+
+        empty_line()
+        hero_turn = not hero_turn
+        time.sleep(1)
+
 
 def battle(fight_level):
     """podľa toho aka prísera utoci bude dane kolo"""
